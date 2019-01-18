@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import { HashRouter, Route } from 'react-router-dom';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Login from './components/Login';
+import MusicList from './components/musics/MusicList';
+import MusicDetails from './components/musics/MusicDetails';
+import MusicCreate from './components/musics/MusicCreate';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <HashRouter>
+        <React.Fragment>
+            <Route path="/" exact component={Login} />
+            <Route path="/music/list" exact component={MusicList} />
+            <Route path="/music/details/:id" exact component={MusicDetails} />
+            <Route path="/music/create" exact component={MusicCreate} />
+        </React.Fragment>
+    </HashRouter>
+, document.querySelector('#root')
+);
