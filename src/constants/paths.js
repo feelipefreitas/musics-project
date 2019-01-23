@@ -1,0 +1,1 @@
+export const loginVideoPath = './assets/video/initial.mp4';
