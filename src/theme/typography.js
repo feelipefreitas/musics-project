@@ -1,4 +1,4 @@
 export const typography = {
-    fontFamily: 'NIISans-Light, "Roboto", sans-serif',
+    fontFamily: '"Roboto", sans-serif',
     useNextVariants: true,
 }

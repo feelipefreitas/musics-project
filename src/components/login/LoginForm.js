@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     withStyles,
     Typography,
@@ -7,10 +8,23 @@ import {
     Card,
     TextField
 } from '@material-ui/core';
-import gradientButton from '../../styles/components/buttons/gradientButton';
+import styles from '../../styles/components/login';
+
 import PropTypes from 'prop-types';
+// import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends React.Component {
+
+    submitForm = (e) => {
+        const { onSubmit } = this.props;
+        const { user, password } = this.state;
+
+        onSubmit(e, {
+            user,
+            password
+        });
+        
+    };
     
     render() { 
         const { classes } = this.props;
@@ -18,48 +32,45 @@ class LoginForm extends React.Component {
         return ( 
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography component="h1">
+                    <Typography align="center" className={classes.title}>
                         Realizar Login
                     </Typography>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Usuario"
-                        type="text"
-                        fullWidth
-                        />
-                    <TextField
-                        margin="dense"
-                        id="name"
-                        label="Senha"
-                        type="text"
-                        fullWidth
-                        />
-                    <Button size="large" className={classes.gradientButton}>
-                        Entrar
-                    </Button>
+                    <form onSubmit={this.submitForm}>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="user"
+                            name="user"
+                            label="Usuario"
+                            type="text"
+                            fullWidth
+                            variant="outlined"
+                            onChange={(e) => this.setState({user: e.target.value})}
+                            className={classes.textField}
+                            />
+                        <TextField
+                            margin="dense"
+                            id="password"
+                            name="password"
+                            label="Senha"
+                            type="text"
+                            fullWidth
+                            variant="outlined"
+                            onChange={(e) => this.setState({password: e.target.value})}
+                            />
+                        <Button type="submit" size="large" fullWidth variant="contained" color="primary" className={classes.button}>
+                            Entrar
+                        </Button>
+                    </form>
                 </CardContent>
             </Card>
          );
     }
 }
-
-const styles = theme => ({
-    card: {
-        width: '50%',
-        height: '200px',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        backgroundColor: 'orange'
-    },
-    gradientButton
-});
  
 LoginForm.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(LoginForm);
