@@ -7,38 +7,42 @@ import {
     Card,
     TextField
 } from '@material-ui/core';
-import gradientButton from '../../styles/components/buttons/gradientButton';
+import { white } from '../../theme/colors';
 import PropTypes from 'prop-types';
 
 class LoginForm extends React.Component {
     
     render() { 
-        const { classes } = this.props;
+        const { classes, onSubmit } = this.props;
 
         return ( 
             <Card className={classes.card}>
                 <CardContent>
-                    <Typography component="h1">
-                        Realizar Login
-                    </Typography>
-                    <TextField
-                        autoFocus
-                        margin="dense"
-                        id="name"
-                        label="Usuario"
-                        type="text"
-                        fullWidth
-                        />
-                    <TextField
-                        margin="dense"
-                        id="name"
-                        label="Senha"
-                        type="text"
-                        fullWidth
-                        />
-                    <Button size="large" className={classes.gradientButton}>
-                        Entrar
-                    </Button>
+                    <form onSubmit={onSubmit}>
+                        <Typography align="center" className={classes.header}>
+                            Realizar <br /> Login
+                        </Typography>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="name"
+                            label="Usuario"
+                            type="text"
+                            fullWidth
+                            variant="outlined"
+                            />
+                        <TextField
+                            margin="dense"
+                            id="name"
+                            label="Senha"
+                            type="text"
+                            fullWidth
+                            variant="outlined"
+                            />
+                        <Button type="submit" variant="contained" size="large" color="primary" fullWidth className={classes.button}>
+                            Entrar
+                        </Button>
+                    </form>
                 </CardContent>
             </Card>
          );
@@ -47,15 +51,25 @@ class LoginForm extends React.Component {
 
 const styles = theme => ({
     card: {
+        maxWidth: '350px',
         width: '50%',
-        height: '200px',
+        height: '60vh',
         position: 'absolute',
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        backgroundColor: 'orange'
+        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        paddingTop: '30px'
     },
-    gradientButton
+    button: {
+        marginTop: '50px'
+    },
+    header: {
+        color: white,
+        marginBottom: '30px',
+        fontSize: '3rem'
+    }
+
 });
  
 LoginForm.propTypes = {

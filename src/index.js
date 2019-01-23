@@ -4,6 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import theme from './theme';
+import 'typeface-roboto';
 
 import AppRouter from './router';
 

@@ -5,13 +5,18 @@ import LoginForm from './LoginForm';
 
 
 class Login extends React.Component {
+
+    login = (e) => {
+        e.preventDefault();
+        console.log(e);
+    };
     
     render() {
         
         return ( 
             <div>
                 <BackgroundVideo />
-                <LoginForm />
+                <LoginForm onSubmit={this.login}/>
             </div>
          );
     }
