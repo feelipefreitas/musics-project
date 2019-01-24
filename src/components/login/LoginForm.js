@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
     withStyles,
     Typography,
@@ -7,39 +8,57 @@ import {
     Card,
     TextField
 } from '@material-ui/core';
-import { white } from '../../theme/colors';
+import styles from '../../styles/components/login';
+
 import PropTypes from 'prop-types';
+// import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends React.Component {
+
+    submitForm = (e) => {
+        const { onSubmit } = this.props;
+        const { user, password } = this.state;
+
+        onSubmit(e, {
+            user,
+            password
+        });
+        
+    };
     
     render() { 
-        const { classes, onSubmit } = this.props;
+        const { classes } = this.props;
 
         return ( 
             <Card className={classes.card}>
                 <CardContent>
-                    <form onSubmit={onSubmit}>
-                        <Typography align="center" className={classes.header}>
-                            Realizar <br /> Login
-                        </Typography>
+                    <Typography align="center" className={classes.title}>
+                        Realizar Login
+                    </Typography>
+                    <form onSubmit={this.submitForm}>
                         <TextField
                             autoFocus
                             margin="dense"
-                            id="name"
+                            id="user"
+                            name="user"
                             label="Usuario"
                             type="text"
                             fullWidth
                             variant="outlined"
-                            />
+                            onChange={(e) => this.setState({user: e.target.value})}
+                            className={classes.textField}
+                        />
                         <TextField
                             margin="dense"
-                            id="name"
+                            id="password"
+                            name="password"
                             label="Senha"
                             type="text"
                             fullWidth
                             variant="outlined"
-                            />
-                        <Button type="submit" variant="contained" size="large" color="primary" fullWidth className={classes.button}>
+                            onChange={(e) => this.setState({password: e.target.value})}
+                        />
+                        <Button type="submit" size="large" fullWidth variant="contained" color="primary" className={classes.button}>
                             Entrar
                         </Button>
                     </form>
@@ -48,32 +67,10 @@ class LoginForm extends React.Component {
          );
     }
 }
-
-const styles = theme => ({
-    card: {
-        maxWidth: '350px',
-        width: '50%',
-        height: '60vh',
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        paddingTop: '30px'
-    },
-    button: {
-        marginTop: '50px'
-    },
-    header: {
-        color: white,
-        marginBottom: '30px',
-        fontSize: '3rem'
-    }
-
-});
  
 LoginForm.propTypes = {
-    classes: PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired,
+    onSubmit: PropTypes.func.isRequired
 };
 
 export default withStyles(styles)(LoginForm);

@@ -2,21 +2,21 @@ import React from 'react';
 
 import BackgroundVideo from '../backgroundVideo';
 import LoginForm from './LoginForm';
+import {requests} from '../../agent';
 
 
 class Login extends React.Component {
 
-    login = (e) => {
+    onLogin = async (e, fields) => {
         e.preventDefault();
-        console.log(e);
+        console.log("resp: ", await requests.get(`/musics/1`));
     };
     
     render() {
-        
         return ( 
             <div>
                 <BackgroundVideo />
-                <LoginForm onSubmit={this.login}/>
+                <LoginForm onSubmit={this.onLogin} />
             </div>
          );
     }
