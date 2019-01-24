@@ -1,4 +1,9 @@
 {
     "users": [],
-    "musics": []
+    "musics": [
+        {
+            "id": 1,
+            "nome": "Teste"
+        }
+    ]
 }

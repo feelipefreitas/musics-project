@@ -1,10 +1,9 @@
-import { secondaryBlue } from '../../../theme/colors';
+import { secondaryBlue, white } from '../../../theme/colors';
 
 export default theme => ({
     card: {
         width: '100%',
         maxWidth: '450px',
-        height: '65vh',
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -15,15 +14,16 @@ export default theme => ({
     button: {
         background: secondaryBlue,
         color: 'white',
-        marginTop: '50px'
+        marginTop: '10%'
     },
     title: {
-        marginTop: '30px',
-        marginBottom: '70px',
         color: 'white',
         fontSize: '4rem'
     },
     textField: {
-        marginBottom: '30px'
+        '&:hover': {
+
+            borderColor: white
+        }
     }
 });
