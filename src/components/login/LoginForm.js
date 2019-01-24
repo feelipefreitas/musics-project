@@ -11,7 +11,6 @@ import {
 import styles from '../../styles/components/login';
 
 import PropTypes from 'prop-types';
-// import { Field, reduxForm } from 'redux-form';
 
 class LoginForm extends React.Component {
 

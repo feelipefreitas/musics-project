@@ -12,3 +12,10 @@ export const requests = {
     post: (url, body) => JSON_SERVER_API.post(url, body).then(resp => resp.data)
 };
 
+export const userRequests = {
+
+};
+
+export const musicsRequests = {
+
+};
