@@ -13,17 +13,11 @@ export default theme => ({
     },
     button: {
         background: secondaryBlue,
-        color: 'white',
+        color: white,
         marginTop: '10%'
     },
     title: {
-        color: 'white',
+        color: white,
         fontSize: '4rem'
     },
-    textField: {
-        '&:hover': {
-
-            borderColor: white
-        }
-    }
 });

@@ -1,7 +1,7 @@
 export const primaryBlue = '#303f9f';
 export const secondaryBlue = '#2196f3';
 
-export const red = '#c62828';
+export const red = '#e53935';
 export const orange = '#f4511e';
 export const white = '#ffffff';
 

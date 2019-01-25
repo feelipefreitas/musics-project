@@ -7,8 +7,7 @@ import {requests} from '../../agent';
 
 class Login extends React.Component {
 
-    onLogin = async (e, fields) => {
-        e.preventDefault();
+    onLogin = async formValues => {
         console.log("resp: ", await requests.get(`/musics/1`));
     };
     

@@ -1,8 +1,9 @@
-const INITIAL_USER_STATE = {
-    userId: null,
-    userName: '',
+const INITIAL_MUSICS_STATE = {
+    musicSelected: {},
+    musicList: []
 };
 
-export default (state = INITIAL_USER_STATE, action) => {
-
+export default (state = INITIAL_MUSICS_STATE, action) => {
+    return state;
 };
+
