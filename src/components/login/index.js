@@ -8,7 +8,10 @@ import { userRequests } from '../../agent';
 class Login extends React.Component {
 
     onLogin = async formValues => {
-        if(await userRequests.login(formValues)) console.log("Login realizado com sucesso.");
+        if(await userRequests.login(formValues)) {
+            console.log("Login realizado com sucesso.");
+            this.props.history.replace('/music/list');
+        }
         else console.log("Usuário ou senha inválidos.");
         
     };
