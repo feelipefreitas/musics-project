@@ -27,15 +27,16 @@ class LoginForm extends React.Component {
             <div>
                 <TextField
                     autoFocus={input.name === 'userName' ? true : false}
+                    type={input.name === 'password' ? 'password' : 'text'} 
                     error={error ? true : false}
                     margin="dense"
                     id={input.name}
                     name={input.name}
                     label={label}
-                    type="text"
                     fullWidth
                     variant="outlined"
                     {...input}
+                    autoComplete="off"
                     // onChange={(e) => this.setState({user: e.target.value})}
                 />
                 {error}
@@ -57,8 +58,8 @@ class LoginForm extends React.Component {
                         Realizar Login
                     </Typography>
                     <form onSubmit={handleSubmit(this.onSubmit)}>
-                        <Field component={this.renderInputs} name="userName" label="Usuário" autoComplete="off" />
-                        <Field component={this.renderInputs} name="password" label="Senha" autoComplete="off" />
+                        <Field component={this.renderInputs} name="userName" label="Usuário" />
+                        <Field component={this.renderInputs} name="password" label="Senha" />
                         
                         <Button type="submit" size="large" fullWidth variant="contained" color="primary" className={classes.button}>
                             Entrar

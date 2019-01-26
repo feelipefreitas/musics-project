@@ -1,0 +1,3 @@
+export const FETCH_USER = 'FETCH_USER';
+export const FETCH_MUSIC_LIST = 'FETCH_MUSIC_LIST'; 
+export const FETCH_MUSIC_SELECTED = 'FETCH_MUSIC_SELECTED';

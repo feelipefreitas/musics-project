@@ -1,9 +1,12 @@
 {
-    "users": [],
-    "musics": [
+    "users": [
         {
             "id": 1,
-            "nome": "Teste"
+            "userName": "Fe",
+            "password": "123"
         }
+    ],
+    "musics": [
+        
     ]
 }

@@ -2,13 +2,15 @@ import React from 'react';
 
 import BackgroundVideo from '../backgroundVideo';
 import LoginForm from './LoginForm';
-import {requests} from '../../agent';
+import { userRequests } from '../../agent';
 
 
 class Login extends React.Component {
 
     onLogin = async formValues => {
-        console.log("resp: ", await requests.get(`/musics/1`));
+        if(await userRequests.login(formValues)) console.log("Login realizado com sucesso.");
+        else console.log("Usuário ou senha inválidos.");
+        
     };
     
     render() {

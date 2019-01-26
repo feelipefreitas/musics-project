@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import user from './user';
-import musics from './musics';
+import musicList from './musicList';
+import musicSelected from './musicSelected';
 import { reducer as formReducer } from 'redux-form';
 
 export default combineReducers({
     user,
-    musics,
+    musicList,
+    musicSelected,
     form: formReducer
 });

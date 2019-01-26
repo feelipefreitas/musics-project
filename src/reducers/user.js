@@ -1,9 +1,15 @@
+import { FETCH_USER } from './constants';
+
 const INITIAL_USER_STATE = {
     userId: null,
-    userName: '',
-    password: ''
+    userName: ''
 };
 
 export default (state = INITIAL_USER_STATE, action) => {
-    return state;
+    switch(action.type) {
+        case FETCH_USER:
+            return { ...state, ...action.payload };
+        default:
+            return state;
+    }
 };
