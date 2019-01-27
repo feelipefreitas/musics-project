@@ -3,17 +3,27 @@ import React from 'react';
 import BackgroundVideo from '../backgroundVideo';
 import LoginForm from './LoginForm';
 import { userRequests } from '../../agent';
+import Snackbar from '../snackbar';
+import { LOGIN_SUCCESS_MESSAGE, LOGIN_ERROR_MESSAGE } from '../../constants/messages';
 
 
 class Login extends React.Component {
 
+    state = { showSnackbarError: false }; 
+
     onLogin = async formValues => {
         if(await userRequests.login(formValues)) {
-            console.log("Login realizado com sucesso.");
             this.props.history.replace('/music/list');
         }
-        else console.log("Usuário ou senha inválidos.");
+        else this.setState({ showSnackbarError: true });
+    };
+
+    renderSnackbar = () => {
         
+        const { showSnackbarError } = this.state;
+
+        if(showSnackbarError)
+            return <Snackbar type="error" messageText={LOGIN_ERROR_MESSAGE} />;
     };
     
     render() {
@@ -21,6 +31,7 @@ class Login extends React.Component {
             <div>
                 <BackgroundVideo />
                 <LoginForm onSubmit={this.onLogin} />
+                { this.renderSnackbar() }
             </div>
          );
     }
