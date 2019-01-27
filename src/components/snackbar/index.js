@@ -1,15 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {
-    Snackbar,
+    Snackbar as Snack,
     withStyles,
     SnackbarContent
 } from '@material-ui/core';
-
 import WarningIcon from '@material-ui/icons/Warning';
 import InfoIcon from '@material-ui/icons/Info';
 import ErrorIcon from '@material-ui/icons/Error';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-
 import styles from '../../styles/components/snackbars';
 
 const icons = {
@@ -19,7 +18,7 @@ const icons = {
     info: InfoIcon,
 }
 
-class ErrorSnackbar extends React.Component {
+class Snackbar extends React.Component {
 
     state = { open: true };
 
@@ -28,7 +27,7 @@ class ErrorSnackbar extends React.Component {
         const Icon = icons[type];
 
         return(
-            <Snackbar 
+            <Snack 
                 anchorOrigin={ { vertical: 'bottom', horizontal: 'center' } }
                 open={this.state.open}
                 autoHideDuration={3000}
@@ -42,9 +41,14 @@ class ErrorSnackbar extends React.Component {
                     }
                     className={classes[type]}
                 />
-            </Snackbar>
+            </Snack>
         );
     };
 }
 
-export default withStyles(styles)(ErrorSnackbar);
+Snackbar.propTypes = {
+    messageText: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
+};
+
+export default withStyles(styles)(Snackbar);

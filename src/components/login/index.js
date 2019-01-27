@@ -4,7 +4,7 @@ import BackgroundVideo from '../backgroundVideo';
 import LoginForm from './LoginForm';
 import { userRequests } from '../../agent';
 import Snackbar from '../snackbar';
-import { LOGIN_SUCCESS_MESSAGE, LOGIN_ERROR_MESSAGE } from '../../constants/messages';
+import { LOGIN_ERROR_MESSAGE } from '../../constants/messages';
 
 
 class Login extends React.Component {
