@@ -49,6 +49,7 @@ class Snackbar extends React.Component {
 Snackbar.propTypes = {
     messageText: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['success', 'error', 'warning', 'info']).isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(Snackbar);
