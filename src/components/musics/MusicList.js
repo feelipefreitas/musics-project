@@ -6,7 +6,7 @@ class MusicList extends React.Component {
     render() { 
         return ( 
             <div>
-                <Header titleText="Lista de Músicas" />
+                <Header titleText="Lista de Músicas" {...this.props} />
                 MusicList
             </div>
          );
