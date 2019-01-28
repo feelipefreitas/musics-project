@@ -2,9 +2,11 @@ import React from 'react';
 
 import BackgroundVideo from '../backgroundVideo';
 import LoginForm from './LoginForm';
-import { userRequests } from '../../agent';
 import Snackbar from '../snackbar';
 import { LOGIN_ERROR_MESSAGE } from '../../constants/messages';
+
+import { connect } from 'react-redux';
+import { signIn } from '../../actions/user';
 
 
 class Login extends React.Component {
@@ -12,7 +14,8 @@ class Login extends React.Component {
     state = { showSnackbarError: false }; 
 
     onLogin = async formValues => {
-        if(await userRequests.login(formValues)) {
+        
+        if(await this.props.signIn(formValues)) {
             this.props.history.replace('/music/list');
         }
         else this.setState({ showSnackbarError: true });
@@ -37,4 +40,4 @@ class Login extends React.Component {
     }
 }
  
-export default Login;
+export default connect(null, { signIn })(Login);
