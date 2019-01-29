@@ -7,6 +7,23 @@
         }
     ],
     "musics": [
-        
+        {
+            "id": 1,
+            "musicName": "Eternity",
+            "musicAuthor": "Special M",
+            "likes": 0
+        },
+        {
+            "id": 2,
+            "musicName": "Snow Cristal",
+            "musicAuthor": "Babalos",
+            "likes": 0
+        },
+        {
+            "id": 3,
+            "musicName": "Calling",
+            "musicAuthor": "Ukiyo",
+            "likes": 0
+        }
     ]
 }

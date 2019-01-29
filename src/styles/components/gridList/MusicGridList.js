@@ -11,7 +11,7 @@ export default theme => ({
     },
     gridList: {
         display: 'flex',
-
+        overflow: 'hidden',
         textAlign: 'center',
         // backgroundColor: 'white'
     },

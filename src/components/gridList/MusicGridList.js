@@ -3,29 +3,48 @@ import { withStyles, GridList } from '@material-ui/core';
 import MusicCard from '../cards/MusicCard';
 import styles from '../../styles/components/gridList/MusicGridList';
 
+import { connect } from 'react-redux';
+import { fetchMusicList } from '../../actions/musics';
+
 class MusicGridList extends Component {
+    
+    componentDidMount() {
+        this.props.fetchMusicList();
+    };
+
+    renderMusicCardList ()  {
+        if(this.props.musicList !== undefined) {
+            
+            const list = this.props.musicList.map(music => (
+                <MusicCard key={music.id} musicId={music.id} musicName={music.musicName} musicAuthor={music.musicAuthor} likes={music.likes}/>
+            ));
+    
+            return (
+                <React.Fragment>
+                    {list}
+                </React.Fragment>
+            )
+        }
+
+        return <div></div>
+    };
+
+
     render() {
         const { classes } = this.props;
 
         return (
             <div className={classes.root}>
                 <GridList className={classes.gridList}>
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-                    <MusicCard />
-
+                    {this.renderMusicCardList()}
                 </GridList>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(MusicGridList);
+const mapStateToProps = state => {
+    return { musicList: state.musicList[0] };
+};
+
+export default connect(mapStateToProps, { fetchMusicList })(withStyles(styles)(MusicGridList));

@@ -9,9 +9,19 @@ import Icon from '@material-ui/core/Icon';
 import styles from '../../styles/components/cards/MusicCard';
 
 class MusicCard extends Component {
+
+    seeDetails = () => {
+
+    };
+
+    like = () => {
+        
+    };
+
+
     render() {
 
-        const { classes } = this.props;
+        const { classes, musicName, musicAuthor, likes } = this.props;
 
         return (
             <Paper  className={classes.card}>
@@ -20,17 +30,20 @@ class MusicCard extends Component {
                         favorite
                     </Icon>
                     <Typography variant="body2" className={classes.likesCounter}>
-                        10
+                        {likes}
                     </Typography>
                 </div>
                 <Typography variant="h5" className={classes.title}>
-                    Nome da Música
+                    {musicName}
                 </Typography>
                 <Typography variant="subtitle1" className={classes.subtitle}>
-                    Nome do Autor
+                    {musicAuthor}
                 </Typography>
-                <Button type="submit" size="small" variant="outlined" className={classes.button}>
+                <Button onClick={this.seeDetails} size="small" variant="outlined" className={classes.buttonDetails}>
                     Detalhes
+                </Button>
+                <Button onClick={this.like} size="small" variant="outlined" className={classes.buttonLike}>
+                    Curtir
                 </Button>
             </Paper >
         );

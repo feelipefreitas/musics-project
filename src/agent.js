@@ -34,5 +34,8 @@ export const userRequests = {
 
 
 export const musicsRequests = {
-
+    getMusicList: async url => {
+        const response = await requests.get('/musics');
+        return response.data;
+    },
 };

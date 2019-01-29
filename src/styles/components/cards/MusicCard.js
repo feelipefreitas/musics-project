@@ -1,4 +1,4 @@
-import { white, red } from "material-ui/styles/colors";
+import { white } from "material-ui/styles/colors";
 
 export default theme => ({
     card: {
@@ -14,16 +14,23 @@ export default theme => ({
     subtitle: {
         marginBottom: '30px'
     },
-    button: {
+    buttonDetails: {
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        color: white,
+        border: 'none',
+        padding: '10px',
+        marginRight: '20px'
+    },
+    buttonLike: {
+        background: 'linear-gradient(45deg, #303f9f 30%, #2196f3 90%)',
         color: white,
         border: 'none',
         padding: '10px'
     },
     likesWrapper: {
         position: 'absolute',
-        top: '-15px',
-        left: '93%',
+        top: 'calc(0% - 15px)',
+        left: 'calc(100% - 20px)',
     },
     heartIcon: {
         fontSize: '40px',
