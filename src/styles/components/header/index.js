@@ -1,4 +1,3 @@
-import { white } from '../../../theme/colors';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 
 export default theme => ({
