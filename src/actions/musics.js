@@ -1,6 +1,7 @@
 import {
     FETCH_MUSIC_LIST,
-    FETCH_MUSIC_SELECTED
+    FETCH_MUSIC_SELECTED,
+    LIKE_MUSIC
 } from '../reducers/constants';
 
 import { musicsRequests } from '../agent';
@@ -20,7 +21,10 @@ export const fetchMusicSelected = music => {
 
 export const likeMusic = music => async dispatch => {
     music.likes += 1;
-    const response = await musicsRequests.likeMusic(music);
+    await musicsRequests.likeMusic(music);
 
-    console.log(response)
+    dispatch({
+        type: LIKE_MUSIC,
+        payload: music
+    });
 };

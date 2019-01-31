@@ -40,8 +40,7 @@ export const musicsRequests = {
         return response.data;
     },
     likeMusic: async music => {
-        console.log("likeMusic: ", music);
-        const response = await requests.put('/musics', music);
+        const response = await requests.patch(`/musics/${music.id}`, music);
         return response.data;
     },
 };

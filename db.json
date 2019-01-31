@@ -11,38 +11,37 @@
       "id": 1,
       "musicName": "Eternity",
       "musicAuthor": "Special M",
-      "likes": 0
+      "likes": 5
     },
     {
       "id": 2,
       "musicName": "Snow Cristal",
       "musicAuthor": "Babalos",
-      "likes": 0
+      "likes": 18
     },
     {
       "id": 3,
       "musicName": "Calling",
       "musicAuthor": "Ukiyo",
-      "likes": 0
+      "likes": 5
     },
     {
       "id": 4,
       "musicName": "easy",
       "musicAuthor": "Mac Ayres",
-      "likes": 1
+      "likes": 5
     },
     {
       "id": 5,
       "musicName": "Woodlock",
       "musicAuthor": "Forever Ago",
-      "likes": 1
+      "likes": 5
     },
     {
       "id": 6,
-      
       "musicName": "HAEVN",
       "musicAuthor": "The Sea",
-      "likes": 1
+      "likes": 5
     }
   ]
 }

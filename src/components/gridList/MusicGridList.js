@@ -44,7 +44,7 @@ class MusicGridList extends Component {
 }
 
 const mapStateToProps = state => {
-    return { musicList: state.musicList[0] };
+    return { musicList: state.musicList };
 };
 
 export default connect(mapStateToProps, { fetchMusicList })(withStyles(styles)(MusicGridList));
