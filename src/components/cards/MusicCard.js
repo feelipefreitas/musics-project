@@ -6,6 +6,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
+import { connect } from 'react-redux';
+import { likeMusic } from '../../actions/musics';
 import styles from '../../styles/components/cards/MusicCard';
 
 class MusicCard extends Component {
@@ -15,7 +17,13 @@ class MusicCard extends Component {
     };
 
     like = () => {
-        
+        const { id, musicName, musicAuthor, likes } = this.props;
+        this.props.likeMusic({
+            id,
+            musicName,
+            musicAuthor,
+            likes
+        });
     };
 
 
@@ -50,4 +58,4 @@ class MusicCard extends Component {
     }
 }
 
-export default withStyles(styles)(MusicCard);
+export default connect(null, {likeMusic})(withStyles(styles)(MusicCard));

@@ -17,3 +17,10 @@ export const fetchMusicList = () => async dispatch => {
 export const fetchMusicSelected = music => {
 
 };
+
+export const likeMusic = music => async dispatch => {
+    music.likes += 1;
+    const response = await musicsRequests.likeMusic(music);
+
+    console.log(response)
+};

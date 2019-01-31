@@ -22,7 +22,8 @@ export const requests = {
     del: url => JSON_SERVER_API.delete(url).then(response => response.data), 
     get: url => JSON_SERVER_API.get(url).then(response => response),
     put: (url, body) => JSON_SERVER_API.put(url, body).then(response => response.data),
-    post: (url, body) => JSON_SERVER_API.post(url, body).then(response => response.data)
+    post: (url, body) => JSON_SERVER_API.post(url, body).then(response => response.data),
+    patch: (url, body) => JSON_SERVER_API.patch(url, body).then(response => response.data),
 };
 
 export const userRequests = {
@@ -34,8 +35,13 @@ export const userRequests = {
 
 
 export const musicsRequests = {
-    getMusicList: async url => {
+    getMusicList: async () => {
         const response = await requests.get('/musics');
+        return response.data;
+    },
+    likeMusic: async music => {
+        console.log("likeMusic: ", music);
+        const response = await requests.put('/musics', music);
         return response.data;
     },
 };

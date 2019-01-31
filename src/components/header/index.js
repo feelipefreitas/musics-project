@@ -75,7 +75,7 @@ class Header extends React.Component {
                                 horizontal: 'right',
                             }}
                             open={open}
-                            onClose={this.handleClose}
+                            onClose={this.handleMenuClose}
                         >
                         <MenuItem onClick={this.signOut}>Sair</MenuItem>
                         </Menu>

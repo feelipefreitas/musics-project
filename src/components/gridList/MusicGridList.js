@@ -16,7 +16,7 @@ class MusicGridList extends Component {
         if(this.props.musicList !== undefined) {
             
             const list = this.props.musicList.map(music => (
-                <MusicCard key={music.id} musicId={music.id} musicName={music.musicName} musicAuthor={music.musicAuthor} likes={music.likes}/>
+                <MusicCard key={music.id} id={music.id} musicName={music.musicName} musicAuthor={music.musicAuthor} likes={music.likes}/>
             ));
     
             return (
