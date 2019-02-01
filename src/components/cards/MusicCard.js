@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
 import { connect } from 'react-redux';
-import { likeMusic } from '../../actions/musics';
+import { likeMusic, dislikeMusic } from '../../actions/musics';
 import styles from '../../styles/components/cards/MusicCard';
 
 class MusicCard extends Component {
@@ -17,19 +17,31 @@ class MusicCard extends Component {
     };
 
     like = () => {
-        const { id, musicName, musicAuthor, likes } = this.props;
+        let { id, musicName, musicAuthor, likes, likersList, liker } = this.props;
         this.props.likeMusic({
             id,
             musicName,
             musicAuthor,
-            likes
+            likes: likes += 1,
+            likers: [...likersList, liker]
+        });
+    };
+
+    dislike = () => {
+        let { id, musicName, musicAuthor, likes, likersList, liker } = this.props;
+        this.props.dislikeMusic({
+            id,
+            musicName,
+            musicAuthor,
+            likes: likes -= 1, 
+            likers: likersList.filter(likerActual => likerActual !== liker)
         });
     };
 
 
     render() {
 
-        const { classes, musicName, musicAuthor, likes } = this.props;
+        const { classes, musicName, musicAuthor, likes, likedMusic } = this.props;
 
         return (
             <Paper  className={classes.card}>
@@ -50,12 +62,34 @@ class MusicCard extends Component {
                 <Button onClick={this.seeDetails} size="small" variant="outlined" className={classes.buttonDetails}>
                     Detalhes
                 </Button>
-                <Button onClick={this.like} size="small" variant="outlined" className={classes.buttonLike}>
-                    Curtir
-                </Button>
+                {
+                    (likedMusic) 
+                    ?
+                        (
+                            <Button onClick={this.dislike} size="small" variant="outlined" className={classes.buttonLike}>
+                                Dislike
+                            </Button>
+                            
+                        )
+                    :
+                        (
+                            <Button onClick={this.like} size="small" variant="outlined" className={classes.buttonLike}>
+                                Like
+                            </Button>
+                        )
+                }
+                
             </Paper >
         );
     }
 }
 
-export default connect(null, {likeMusic})(withStyles(styles)(MusicCard));
+const mapStateToProps = (state, ownProps) => {
+    const liked = state.musicList.filter(music => music.id === ownProps.id)[0].likers.includes(state.user.userId);
+    return {
+        likedMusic: liked,
+        liker: state.user.userId
+    }
+};
+
+export default connect(mapStateToProps, {likeMusic, dislikeMusic})(withStyles(styles)(MusicCard));

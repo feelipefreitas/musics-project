@@ -1,6 +1,7 @@
 import {
     FETCH_MUSIC_LIST,
-    LIKE_MUSIC
+    LIKE_MUSIC,
+    DISLIKE_MUSIC
 } from './constants';
 
 const INITIAL_MUSIC_LIST_STATE = [];
@@ -10,8 +11,12 @@ export default (state = INITIAL_MUSIC_LIST_STATE, action) => {
         case FETCH_MUSIC_LIST:
             return [ ...state, ...action.payload ];
         case LIKE_MUSIC:
+        case DISLIKE_MUSIC:
             return state.map(music => {
-                if(music.id === action.payload.id) music.likes = action.payload.likes;
+                if(music.id === action.payload.id) {
+                    music.likes = action.payload.likes;  
+                    music.likers = action.payload.likers;   
+                }
                 return music;
             });
         default:
