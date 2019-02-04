@@ -43,5 +43,17 @@ export default theme => ({
         color: white,
         position: 'relative',
         top: '-36px'
+    },
+    deleteWrapper: {
+        position: 'absolute',
+        top: '0%',
+        left: '0%',
+    },
+    deleteButton: {
+        cursor: 'pointer',
+        color: '#e53935',
+        '&:hover': {
+            color: '#ef5350'
+        }
     }
 });

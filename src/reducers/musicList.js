@@ -1,7 +1,8 @@
 import {
     FETCH_MUSIC_LIST,
     LIKE_MUSIC,
-    DISLIKE_MUSIC
+    DISLIKE_MUSIC,
+    DELETE_MUSIC
 } from './constants';
 
 const INITIAL_MUSIC_LIST_STATE = [];
@@ -19,6 +20,8 @@ export default (state = INITIAL_MUSIC_LIST_STATE, action) => {
                 }
                 return music;
             });
+        case DELETE_MUSIC:
+            return state.filter(music => music.id !== action.payload);
         default:
             return state;
     }

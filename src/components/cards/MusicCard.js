@@ -7,13 +7,17 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
 import { connect } from 'react-redux';
-import { likeMusic, dislikeMusic } from '../../actions/musics';
+import { likeMusic, dislikeMusic, deleteMusic } from '../../actions/musics';
 import styles from '../../styles/components/cards/MusicCard';
 
 class MusicCard extends Component {
 
     seeDetails = () => {
 
+    };
+
+    deleteMusic = () => {
+        this.props.deleteMusic(this.props.id);
     };
 
     like = () => {
@@ -45,6 +49,11 @@ class MusicCard extends Component {
 
         return (
             <Paper  className={classes.card}>
+                <div className={classes.deleteWrapper}>
+                    <Icon className={classes.deleteButton} onClick={this.deleteMusic}>
+                        delete
+                    </Icon>
+                </div>
                 <div className={classes.likesWrapper}>
                     <Icon className={classes.heartIcon}>
                         favorite
@@ -92,4 +101,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 };
 
-export default connect(mapStateToProps, {likeMusic, dislikeMusic})(withStyles(styles)(MusicCard));
+export default connect(mapStateToProps, {likeMusic, dislikeMusic, deleteMusic})(withStyles(styles)(MusicCard));

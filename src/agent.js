@@ -43,4 +43,5 @@ export const musicsRequests = {
         const response = await requests.patch(`/musics/${music.id}`, music);
         return response.data;
     },
+    deleteMusic: async id => requests.del(`/musics/${id}`)
 };

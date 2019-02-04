@@ -2,7 +2,8 @@ import {
     FETCH_MUSIC_LIST,
     FETCH_MUSIC_SELECTED,
     LIKE_MUSIC,
-    DISLIKE_MUSIC
+    DISLIKE_MUSIC,
+    DELETE_MUSIC
 } from '../reducers/constants';
 
 import { musicsRequests } from '../agent';
@@ -35,5 +36,14 @@ export const dislikeMusic = music => async dispatch => {
     dispatch({
         type: DISLIKE_MUSIC,
         payload: music
+    });
+};
+
+export const deleteMusic = id => async dispatch => {
+    await musicsRequests.deleteMusic(id);
+
+    dispatch({
+        type: DELETE_MUSIC,
+        payload: id
     });
 };
