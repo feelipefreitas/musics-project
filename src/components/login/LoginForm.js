@@ -9,7 +9,7 @@ import {
     TextField
 } from '@material-ui/core';
 import styles from '../../styles/components/login';
-import boxError from '../../styles/components/errorBox';
+import boxError from '../../styles/components/messageBox/errorBox';
 import { Field, reduxForm } from 'redux-form';
 
 import PropTypes from 'prop-types';

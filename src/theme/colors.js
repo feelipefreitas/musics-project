@@ -7,6 +7,7 @@ export const red = '#e53935';
 export const orange = '#f4511e';
 export const white = '#ffffff';
 export const green = '#00e676';
+export const darkGreen = '#00c853';
 
 export const title = '#212121';
 export const subTitle = '#757575';

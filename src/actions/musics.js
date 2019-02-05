@@ -47,3 +47,13 @@ export const deleteMusic = id => async dispatch => {
         payload: id
     });
 };
+
+export const createMusic = music => async dispatch => {
+    music.likes = 0;
+    music.likers = [];
+    
+    const response = await musicsRequests.createMusic(music);
+    console.log(response)
+
+    return response;
+};
