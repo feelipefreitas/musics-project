@@ -3,7 +3,8 @@ import {
     FETCH_MUSIC_SELECTED,
     LIKE_MUSIC,
     DISLIKE_MUSIC,
-    DELETE_MUSIC
+    DELETE_MUSIC,
+    ADD_MUSIC
 } from '../reducers/constants';
 
 import { musicsRequests } from '../agent';
@@ -53,7 +54,9 @@ export const createMusic = music => async dispatch => {
     music.likers = [];
     
     const response = await musicsRequests.createMusic(music);
-    console.log(response)
-
-    return response;
+    
+    dispatch({
+        type: ADD_MUSIC,
+        payload: response
+    });
 };
